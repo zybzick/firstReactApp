@@ -5,12 +5,10 @@ import TodoListItem from "./todo-list-item";
 const TodoList = ()=>{
     return (
         <ul>
-            <li>
-                <TodoListItem/>
-            </li>
-            <li>
-                <TodoListItem/>
-            </li>
+            <li><TodoListItem
+                label="Do"
+                important={true}/></li>
+            <li><TodoListItem label="Do some"/></li>
         </ul>
     )
 }
