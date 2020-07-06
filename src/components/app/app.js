@@ -2,7 +2,7 @@ import AppHeader from "../app-header";
 import SearchPanel from "../search-panel";
 import ItemStatusFilter from "../item-status-filter";
 import TodoList from "../todo-list";
-import AddItem from "../add-item";
+import ItemAddForm from "../item-add-form";
 import React, {Component} from "react";
 
 import './app.css'
@@ -47,8 +47,8 @@ export default class App extends Component {
                 <TodoList
                     onDeleted={ this.deleteItem }
                     todos={ this.state.todoData } />
-                <AddItem
-                    onAddItem={this.addItem}
+                <ItemAddForm
+                    onItemAdded={this.addItem}
                 />
             </div>
         );
