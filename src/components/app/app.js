@@ -7,6 +7,7 @@ import React, {Component} from "react";
 import './app.css'
 
 export default class App extends Component {
+
     state = {
         todoData: [
             { label: 'Drink Coffee', important: false, id: 1 },
@@ -15,10 +16,16 @@ export default class App extends Component {
         ]
     }
 
+    deleteItem = (id)=>{
+        this.setState(({todoData})=>{
+            const res = todoData.filter((el) => el.id !== id)
+            return {
+                todoData: res
+            }
+        })
+    }
+
     render() {
-
-        const {todoData} = this.state
-
         return (
             <div className="todo-app">
                 <AppHeader toDo={1} done={3} />
@@ -28,8 +35,8 @@ export default class App extends Component {
                 </div>
 
                 <TodoList
-                    onDeleted={(id) => console.log(id)}
-                    todos={todoData} />
+                    onDeleted={ this.deleteItem }
+                    todos={ this.state.todoData } />
             </div>
         );
     }
