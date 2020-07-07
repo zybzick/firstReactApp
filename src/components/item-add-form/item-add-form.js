@@ -5,7 +5,7 @@ import './item-add-form.css';
 export default class ItemAddForm extends Component{
 
     state = {
-        label: 'Default work'
+        label: ''
     }
 
     onLabelChange = (e)=>{
@@ -16,6 +16,9 @@ export default class ItemAddForm extends Component{
     onSubmit = (e)=> {
         e.preventDefault();
         this.props.onItemAdded(this.state.label)
+        this.setState({
+            label: ''
+        })
     }
 
     render() {
@@ -27,7 +30,9 @@ export default class ItemAddForm extends Component{
                     placeholder="type"
                     onChange={this.onLabelChange}
                     className="form-control mr-2"
-                    type="text"/>
+                    type="text"
+                    value={this.state.label}
+                />
                 <button
                     className='btn btn-outline-secondary'
                 >AddItem</button>
