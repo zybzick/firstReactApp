@@ -12,11 +12,10 @@ export default class ItemAddForm extends Component{
         const {onItemAdded} = this.props
         return (
             <div className='item-add-form'>
-                <hr/>
                 <button
                     className='btn btn-outline-secondary'
                     onClick={()=>onItemAdded(this.state.text)}
-                >Add</button>
+                >Add item</button>
             </div>
         )
     }
